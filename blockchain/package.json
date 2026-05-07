@@ -1,0 +1,19 @@
+{
+  "name": "verivote-blockchain",
+  "version": "1.0.0",
+  "description": "VeriVote Smart Contracts - Blockchain-based E-Voting System",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "node": "npx hardhat node",
+    "deploy:local": "npx hardhat run scripts/deploy.ts --network localhost",
+    "deploy:sepolia": "npx hardhat run scripts/deploy.ts --network sepolia"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.0",
+    "typescript": "^5.4.0",
+    "ts-node": "^10.9.2",
+    "@types/node": "^20.0.0"
+  }
+}

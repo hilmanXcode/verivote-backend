@@ -1,0 +1,79 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "C:\\Users\\elain\\Documents\\ProjectCoding\\VeriVote\\verivote-backend\\blockchain\\contracts\\VeriVoteMain.sol": {
+      "lastModificationDate": 1778154822484,
+      "contentHash": "281e8310fe932b40e0cb5f411412ae19",
+      "sourceName": "contracts/VeriVoteMain.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "./VoterRegistry.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "VeriVoteMain"
+      ]
+    },
+    "C:\\Users\\elain\\Documents\\ProjectCoding\\VeriVote\\verivote-backend\\blockchain\\contracts\\VoterRegistry.sol": {
+      "lastModificationDate": 1778147968625,
+      "contentHash": "441fe5288a1289220082c2e8dc418557",
+      "sourceName": "contracts/VoterRegistry.sol",
+      "solcConfig": {
+        "version": "0.8.24",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "evmVersion": "paris",
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.24"
+      ],
+      "artifacts": [
+        "VoterRegistry"
+      ]
+    }
+  }
+}

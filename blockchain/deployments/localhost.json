@@ -1,0 +1,1272 @@
+{
+  "network": "localhost",
+  "chainId": 31337,
+  "deployer": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+  "contracts": {
+    "VoterRegistry": {
+      "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      "abi": [
+        {
+          "type": "constructor",
+          "stateMutability": "undefined",
+          "payable": false,
+          "inputs": []
+        },
+        {
+          "type": "event",
+          "anonymous": false,
+          "name": "VoterRegistered",
+          "inputs": [
+            {
+              "type": "address",
+              "name": "voterAddress",
+              "indexed": true
+            },
+            {
+              "type": "string",
+              "name": "nim",
+              "indexed": false
+            },
+            {
+              "type": "string",
+              "name": "name",
+              "indexed": false
+            },
+            {
+              "type": "uint8",
+              "name": "role",
+              "indexed": false
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "anonymous": false,
+          "name": "VoterRemoved",
+          "inputs": [
+            {
+              "type": "address",
+              "name": "voterAddress",
+              "indexed": true
+            },
+            {
+              "type": "string",
+              "name": "nim",
+              "indexed": false
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "anonymous": false,
+          "name": "VoterRoleUpdated",
+          "inputs": [
+            {
+              "type": "address",
+              "name": "voterAddress",
+              "indexed": true
+            },
+            {
+              "type": "uint8",
+              "name": "oldRole",
+              "indexed": false
+            },
+            {
+              "type": "uint8",
+              "name": "newRole",
+              "indexed": false
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "batchRegisterVoters",
+          "constant": false,
+          "payable": false,
+          "inputs": [
+            {
+              "type": "address[]",
+              "name": "_addresses"
+            },
+            {
+              "type": "string[]",
+              "name": "_nims"
+            },
+            {
+              "type": "string[]",
+              "name": "_names"
+            },
+            {
+              "type": "uint8[]",
+              "name": "_roles"
+            }
+          ],
+          "outputs": []
+        },
+        {
+          "type": "function",
+          "name": "getAddressByNim",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "string",
+              "name": "_nim"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "address",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "getAllVoterAddresses",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "address[]",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "getVoterByAddress",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "address",
+              "name": "_address"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "tuple",
+              "name": "",
+              "components": [
+                {
+                  "type": "string",
+                  "name": "nim"
+                },
+                {
+                  "type": "string",
+                  "name": "name"
+                },
+                {
+                  "type": "uint8",
+                  "name": "role"
+                },
+                {
+                  "type": "bool",
+                  "name": "isRegistered"
+                },
+                {
+                  "type": "uint256",
+                  "name": "registeredAt"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "getVoterByNim",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "string",
+              "name": "_nim"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "tuple",
+              "name": "",
+              "components": [
+                {
+                  "type": "string",
+                  "name": "nim"
+                },
+                {
+                  "type": "string",
+                  "name": "name"
+                },
+                {
+                  "type": "uint8",
+                  "name": "role"
+                },
+                {
+                  "type": "bool",
+                  "name": "isRegistered"
+                },
+                {
+                  "type": "uint256",
+                  "name": "registeredAt"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "getVoterCount",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "getVoterRole",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "address",
+              "name": "_address"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "uint8",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "isRegistered",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "address",
+              "name": "_address"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "bool",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "nimToAddress",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "string",
+              "name": ""
+            }
+          ],
+          "outputs": [
+            {
+              "type": "address",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "owner",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "address",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "registerVoter",
+          "constant": false,
+          "payable": false,
+          "inputs": [
+            {
+              "type": "address",
+              "name": "_voterAddress"
+            },
+            {
+              "type": "string",
+              "name": "_nim"
+            },
+            {
+              "type": "string",
+              "name": "_name"
+            },
+            {
+              "type": "uint8",
+              "name": "_role"
+            }
+          ],
+          "outputs": []
+        },
+        {
+          "type": "function",
+          "name": "removeVoter",
+          "constant": false,
+          "payable": false,
+          "inputs": [
+            {
+              "type": "address",
+              "name": "_voterAddress"
+            }
+          ],
+          "outputs": []
+        },
+        {
+          "type": "function",
+          "name": "totalVoters",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "updateVoterRole",
+          "constant": false,
+          "payable": false,
+          "inputs": [
+            {
+              "type": "address",
+              "name": "_voterAddress"
+            },
+            {
+              "type": "uint8",
+              "name": "_newRole"
+            }
+          ],
+          "outputs": []
+        },
+        {
+          "type": "function",
+          "name": "voterAddresses",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "outputs": [
+            {
+              "type": "address",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "voters",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "address",
+              "name": ""
+            }
+          ],
+          "outputs": [
+            {
+              "type": "string",
+              "name": "nim"
+            },
+            {
+              "type": "string",
+              "name": "name"
+            },
+            {
+              "type": "uint8",
+              "name": "role"
+            },
+            {
+              "type": "bool",
+              "name": "isRegistered"
+            },
+            {
+              "type": "uint256",
+              "name": "registeredAt"
+            }
+          ]
+        }
+      ]
+    },
+    "VeriVoteMain": {
+      "address": "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      "abi": [
+        {
+          "type": "constructor",
+          "stateMutability": "undefined",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "address",
+              "name": "_voterRegistryAddress"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "anonymous": false,
+          "name": "CandidateAdded",
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "electionId",
+              "indexed": true
+            },
+            {
+              "type": "uint256",
+              "name": "candidateId",
+              "indexed": false
+            },
+            {
+              "type": "string",
+              "name": "name",
+              "indexed": false
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "anonymous": false,
+          "name": "ElectionCreated",
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "electionId",
+              "indexed": true
+            },
+            {
+              "type": "string",
+              "name": "title",
+              "indexed": false
+            },
+            {
+              "type": "address",
+              "name": "createdBy",
+              "indexed": false
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "anonymous": false,
+          "name": "ElectionEnded",
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "electionId",
+              "indexed": true
+            },
+            {
+              "type": "uint256",
+              "name": "totalVotes",
+              "indexed": false
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "anonymous": false,
+          "name": "ElectionStarted",
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "electionId",
+              "indexed": true
+            },
+            {
+              "type": "uint256",
+              "name": "startDate",
+              "indexed": false
+            },
+            {
+              "type": "uint256",
+              "name": "endDate",
+              "indexed": false
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "anonymous": false,
+          "name": "ElectionStatusChanged",
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "electionId",
+              "indexed": true
+            },
+            {
+              "type": "uint8",
+              "name": "oldStatus",
+              "indexed": false
+            },
+            {
+              "type": "uint8",
+              "name": "newStatus",
+              "indexed": false
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "anonymous": false,
+          "name": "VoteCast",
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "electionId",
+              "indexed": true
+            },
+            {
+              "type": "address",
+              "name": "voter",
+              "indexed": true
+            },
+            {
+              "type": "bytes32",
+              "name": "voteHash",
+              "indexed": false
+            },
+            {
+              "type": "uint256",
+              "name": "timestamp",
+              "indexed": false
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "addCandidate",
+          "constant": false,
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "_electionId"
+            },
+            {
+              "type": "string",
+              "name": "_name"
+            },
+            {
+              "type": "string",
+              "name": "_description"
+            },
+            {
+              "type": "string",
+              "name": "_imageHash"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "addCandidatesBatch",
+          "constant": false,
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "_electionId"
+            },
+            {
+              "type": "string[]",
+              "name": "_names"
+            },
+            {
+              "type": "string[]",
+              "name": "_descriptions"
+            },
+            {
+              "type": "string[]",
+              "name": "_imageHashes"
+            }
+          ],
+          "outputs": []
+        },
+        {
+          "type": "function",
+          "name": "candidates",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            },
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": "id"
+            },
+            {
+              "type": "string",
+              "name": "name"
+            },
+            {
+              "type": "string",
+              "name": "description"
+            },
+            {
+              "type": "string",
+              "name": "imageHash"
+            },
+            {
+              "type": "uint256",
+              "name": "voteCount"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "castVote",
+          "constant": false,
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "_electionId"
+            },
+            {
+              "type": "uint256",
+              "name": "_candidateId"
+            }
+          ],
+          "outputs": []
+        },
+        {
+          "type": "function",
+          "name": "castVoteByAdmin",
+          "constant": false,
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "_electionId"
+            },
+            {
+              "type": "uint256",
+              "name": "_candidateId"
+            },
+            {
+              "type": "address",
+              "name": "_voter"
+            }
+          ],
+          "outputs": []
+        },
+        {
+          "type": "function",
+          "name": "createElection",
+          "constant": false,
+          "payable": false,
+          "inputs": [
+            {
+              "type": "string",
+              "name": "_title"
+            },
+            {
+              "type": "string",
+              "name": "_description"
+            },
+            {
+              "type": "uint256",
+              "name": "_totalVoters"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "electionCount",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "electionVotes",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            },
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "outputs": [
+            {
+              "type": "address",
+              "name": "voter"
+            },
+            {
+              "type": "uint256",
+              "name": "candidateId"
+            },
+            {
+              "type": "uint256",
+              "name": "timestamp"
+            },
+            {
+              "type": "bytes32",
+              "name": "voteHash"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "elections",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ],
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": "id"
+            },
+            {
+              "type": "string",
+              "name": "title"
+            },
+            {
+              "type": "string",
+              "name": "description"
+            },
+            {
+              "type": "uint8",
+              "name": "status"
+            },
+            {
+              "type": "address",
+              "name": "createdBy"
+            },
+            {
+              "type": "uint256",
+              "name": "createdAt"
+            },
+            {
+              "type": "uint256",
+              "name": "startDate"
+            },
+            {
+              "type": "uint256",
+              "name": "endDate"
+            },
+            {
+              "type": "uint256",
+              "name": "totalVoters"
+            },
+            {
+              "type": "uint256",
+              "name": "totalVotes"
+            },
+            {
+              "type": "uint256",
+              "name": "candidateCount"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "endElection",
+          "constant": false,
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "_electionId"
+            }
+          ],
+          "outputs": []
+        },
+        {
+          "type": "function",
+          "name": "getAllCandidates",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "_electionId"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "tuple[]",
+              "name": "",
+              "components": [
+                {
+                  "type": "uint256",
+                  "name": "id"
+                },
+                {
+                  "type": "string",
+                  "name": "name"
+                },
+                {
+                  "type": "string",
+                  "name": "description"
+                },
+                {
+                  "type": "string",
+                  "name": "imageHash"
+                },
+                {
+                  "type": "uint256",
+                  "name": "voteCount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "getCandidate",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "_electionId"
+            },
+            {
+              "type": "uint256",
+              "name": "_candidateId"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "tuple",
+              "name": "",
+              "components": [
+                {
+                  "type": "uint256",
+                  "name": "id"
+                },
+                {
+                  "type": "string",
+                  "name": "name"
+                },
+                {
+                  "type": "string",
+                  "name": "description"
+                },
+                {
+                  "type": "string",
+                  "name": "imageHash"
+                },
+                {
+                  "type": "uint256",
+                  "name": "voteCount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "getElection",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "_electionId"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "tuple",
+              "name": "",
+              "components": [
+                {
+                  "type": "uint256",
+                  "name": "id"
+                },
+                {
+                  "type": "string",
+                  "name": "title"
+                },
+                {
+                  "type": "string",
+                  "name": "description"
+                },
+                {
+                  "type": "uint8",
+                  "name": "status"
+                },
+                {
+                  "type": "address",
+                  "name": "createdBy"
+                },
+                {
+                  "type": "uint256",
+                  "name": "createdAt"
+                },
+                {
+                  "type": "uint256",
+                  "name": "startDate"
+                },
+                {
+                  "type": "uint256",
+                  "name": "endDate"
+                },
+                {
+                  "type": "uint256",
+                  "name": "totalVoters"
+                },
+                {
+                  "type": "uint256",
+                  "name": "totalVotes"
+                },
+                {
+                  "type": "uint256",
+                  "name": "candidateCount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "getElectionCount",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "getElectionResults",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "_electionId"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "tuple[]",
+              "name": "",
+              "components": [
+                {
+                  "type": "uint256",
+                  "name": "id"
+                },
+                {
+                  "type": "string",
+                  "name": "name"
+                },
+                {
+                  "type": "string",
+                  "name": "description"
+                },
+                {
+                  "type": "string",
+                  "name": "imageHash"
+                },
+                {
+                  "type": "uint256",
+                  "name": "voteCount"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "getElectionVoteCount",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "_electionId"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "getParticipationRate",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "_electionId"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "getVoteVerification",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "_electionId"
+            },
+            {
+              "type": "address",
+              "name": "_voter"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "bytes32",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "hasVoted",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            },
+            {
+              "type": "address",
+              "name": ""
+            }
+          ],
+          "outputs": [
+            {
+              "type": "bool",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "hasVoterVoted",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "_electionId"
+            },
+            {
+              "type": "address",
+              "name": "_voter"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "bool",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "isElectionActive",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "_electionId"
+            }
+          ],
+          "outputs": [
+            {
+              "type": "bool",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "owner",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "address",
+              "name": ""
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "startElection",
+          "constant": false,
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": "_electionId"
+            },
+            {
+              "type": "uint256",
+              "name": "_durationInSeconds"
+            }
+          ],
+          "outputs": []
+        },
+        {
+          "type": "function",
+          "name": "voteRecords",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [
+            {
+              "type": "uint256",
+              "name": ""
+            },
+            {
+              "type": "address",
+              "name": ""
+            }
+          ],
+          "outputs": [
+            {
+              "type": "address",
+              "name": "voter"
+            },
+            {
+              "type": "uint256",
+              "name": "candidateId"
+            },
+            {
+              "type": "uint256",
+              "name": "timestamp"
+            },
+            {
+              "type": "bytes32",
+              "name": "voteHash"
+            }
+          ]
+        },
+        {
+          "type": "function",
+          "name": "voterRegistry",
+          "constant": true,
+          "stateMutability": "view",
+          "payable": false,
+          "inputs": [],
+          "outputs": [
+            {
+              "type": "address",
+              "name": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "deployedAt": "2026-05-07T14:26:36.196Z"
+}
