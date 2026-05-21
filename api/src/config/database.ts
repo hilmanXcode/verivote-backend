@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize";
 
 const DB_NAME = process.env.DB_NAME || "verivote";
 const DB_USER = process.env.DB_USER || "postgres";
-const DB_PASSWORD = process.env.DB_PASSWORD || "postgres";
+const DB_PASSWORD = process.env.DB_PASSWORD || "password827";
 const DB_HOST = process.env.DB_HOST || "localhost";
 const DB_PORT = parseInt(process.env.DB_PORT || "5432");
 

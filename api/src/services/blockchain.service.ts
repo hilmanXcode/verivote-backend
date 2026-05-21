@@ -303,7 +303,7 @@ export class BlockchainService {
         voteHash = parsed?.args.voteHash;
       }
 
-      return { txHash: receipt.hash, voteHash };
+      return { txHash: receipt!.hash, voteHash };
     } catch (error: any) {
       throw new Error(this.parseBlockchainError(error));
     }
@@ -367,6 +367,33 @@ export class BlockchainService {
       return await contract.getVoteVerification(electionId, voterAddress);
     } catch (error: any) {
       throw new Error(this.parseBlockchainError(error));
+    }
+  }
+
+  /**
+   * Get voting status for multiple voters in an election.
+   * Uses Promise.all for parallel blockchain queries.
+   */
+  static async getVotersStatus(
+    electionId: number,
+    walletAddresses: string[]
+  ): Promise<{ walletAddress: string; hasVoted: boolean; votedAt: number | null }[]> {
+    try {
+      const results = await Promise.all(
+        walletAddresses.map(async (address) => {
+          const hasVoted = await this.hasVoterVoted(electionId, address);
+          let votedAt: number | null = null;
+          if (hasVoted) {
+            const record = await this.getVoteRecord(electionId, address);
+            votedAt = record?.timestamp || null;
+          }
+          return { walletAddress: address, hasVoted, votedAt };
+        })
+      );
+      return results;
+    } catch (error: any) {
+      console.error("getVotersStatus error:", error.message);
+      return walletAddresses.map(address => ({ walletAddress: address, hasVoted: false, votedAt: null }));
     }
   }
 

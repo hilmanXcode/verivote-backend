@@ -1,8 +1,8 @@
 {
   "_format": "hh-sol-cache-2",
   "files": {
-    "C:\\Users\\elain\\Documents\\ProjectCoding\\VeriVote\\verivote-backend\\blockchain\\contracts\\VeriVoteMain.sol": {
-      "lastModificationDate": 1778154822484,
+    "C:\\Users\\Administrator\\Documents\\ProjectCoding\\VeriVote\\verivote-backend\\blockchain\\contracts\\VeriVoteMain.sol": {
+      "lastModificationDate": 1779232409332,
       "contentHash": "281e8310fe932b40e0cb5f411412ae19",
       "sourceName": "contracts/VeriVoteMain.sol",
       "solcConfig": {
@@ -39,8 +39,8 @@
         "VeriVoteMain"
       ]
     },
-    "C:\\Users\\elain\\Documents\\ProjectCoding\\VeriVote\\verivote-backend\\blockchain\\contracts\\VoterRegistry.sol": {
-      "lastModificationDate": 1778147968625,
+    "C:\\Users\\Administrator\\Documents\\ProjectCoding\\VeriVote\\verivote-backend\\blockchain\\contracts\\VoterRegistry.sol": {
+      "lastModificationDate": 1779232409332,
       "contentHash": "441fe5288a1289220082c2e8dc418557",
       "sourceName": "contracts/VoterRegistry.sol",
       "solcConfig": {

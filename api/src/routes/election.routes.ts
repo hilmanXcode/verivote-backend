@@ -2,6 +2,7 @@ import { Router, Response } from "express";
 import { authenticate, authorize, AuthRequest } from "../middleware/auth";
 import { BlockchainService } from "../services/blockchain.service";
 import AdminLog from "../models/AdminLog";
+import User from "../models/User";
 
 const router = Router();
 
@@ -90,6 +91,68 @@ router.get("/:id/results", authenticate, async (req: AuthRequest, res: Response)
     res.json({ success: true, data: { election, results, winner: results[0] || null } });
   } catch (error: any) {
     res.status(500).json({ success: false, message: error.message });
+  }
+});
+
+/** GET /api/elections/:id/voters - Get voter status list for an election (admin/operator) */
+router.get("/:id/voters", authenticate, authorize("admin", "operator"), async (req: AuthRequest, res: Response): Promise<void> => {
+  try {
+    const electionId = parseInt(req.params.id);
+    const election = await BlockchainService.getElection(electionId);
+
+    // Get all users with role 'user'
+    const users = await User.findAll({
+      where: { role: "user" },
+      attributes: ["id", "nim", "name", "wallet_address"],
+      order: [["name", "ASC"]],
+    });
+
+    // Get wallet addresses for batch status check
+    const walletsToCheck = users
+      .filter(u => u.wallet_address)
+      .map(u => u.wallet_address as string);
+
+    const voterStatuses = await BlockchainService.getVotersStatus(electionId, walletsToCheck);
+
+    // Create a map for quick lookup
+    const statusMap = new Map(
+      voterStatuses.map(s => [s.walletAddress.toLowerCase(), s])
+    );
+
+    // Build voter list
+    const voters = users.map(u => {
+      const status = u.wallet_address
+        ? statusMap.get(u.wallet_address.toLowerCase())
+        : null;
+      return {
+        id: u.id,
+        nim: u.nim,
+        name: u.name,
+        hasVoted: status?.hasVoted || false,
+        votedAt: status?.votedAt
+          ? new Date(status.votedAt * 1000).toISOString()
+          : null,
+      };
+    });
+
+    const totalVoted = voters.filter(v => v.hasVoted).length;
+
+    res.json({
+      success: true,
+      data: {
+        electionId,
+        electionTitle: election.title,
+        totalEligible: voters.length,
+        totalVoted,
+        totalNotVoted: voters.length - totalVoted,
+        voters,
+      },
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      success: false,
+      message: error.message || "Gagal mengambil data voters.",
+    });
   }
 });
 
