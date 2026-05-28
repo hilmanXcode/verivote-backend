@@ -68,6 +68,11 @@ async function startServer() {
     await initBlockchain();
     console.log("✅ Blockchain connected");
 
+    // Start auto-end election scheduler
+    const { startElectionScheduler } = require("./services/scheduler");
+    startElectionScheduler();
+    console.log("✅ Election scheduler started");
+
     app.listen(PORT, () => {
       console.log(`\n🚀 VeriVote API running on http://localhost:${PORT}`);
       console.log(`📋 Health check: http://localhost:${PORT}/api/health`);

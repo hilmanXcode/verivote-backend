@@ -210,8 +210,10 @@ router.post("/:id/candidates", authenticate, authorize("admin"), async (req: Aut
 /** POST /api/elections/:id/start */
 router.post("/:id/start", authenticate, authorize("admin"), async (req: AuthRequest, res: Response): Promise<void> => {
   try {
-    const { durationDays = 7 } = req.body;
-    const result = await BlockchainService.startElection(parseInt(req.params.id), durationDays * 86400);
+    // Terima durationInSeconds langsung, dengan backward compatibility jika frontend lama mengirim durationDays
+    const durationInSeconds = req.body.durationInSeconds || (req.body.durationDays || 7) * 86400;
+    const result = await BlockchainService.startElection(parseInt(req.params.id), durationInSeconds);
+    // console.log(durationInSeconds);
     await AdminLog.create({ message: `${req.user!.name} memulai election #${req.params.id}` });
     res.json({ success: true, message: "Election dimulai!", data: result });
   } catch (error: any) {
